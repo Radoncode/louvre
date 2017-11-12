@@ -1,0 +1,45 @@
+
+<html>
+<h1>MUSEE DU LOUVRE</h1>
+<body>
+<h2>Félication votre réservation n° {{ code }} a bien été enregistré!</h2>
+<p>Chèr(e) client(e)<br/><br/> 
+Nous avons le plaisir de vous confimer votre réservation au Musée du Louvre pour le {{ date_r }}<br/>
+Merci</p>
+
+<h2>RECAPITULATIF DE LA COMMANDE </h2>
+  <table class="table table-bordered">
+   <thead>
+      <tr>
+        <th>NUMERO DU TICKET</th>
+        <th>COORDONNEES</th>
+        <th>PRIX</th>
+      </tr>
+   </thead>
+  <tbody>
+  {% if listTickets is defined %}
+  {% for ticket in listTickets %}
+    <tr>
+       <th>{{ ticket.id }}</th>
+       <th>{{ ticket.firstname }} {{ ticket.name }} né(e) le {{ ticket.birthday|date('d/m/Y') }}</th>
+       <th>{{ ticket.price }}€</th>
+    </tr>
+  {% endfor %}
+  </tbody>
+  <tfooter>
+     <tr>
+        <th></th>
+        <th>TOTALE</th>
+        <th>{{ sumTickets }}€</th>
+     </tr>
+  </tfooter>
+  {% endif %} 
+  </table>
+  <p>
+   <img src="{{ logo }}" height="110" width="250" />
+  </p>
+<body>
+<html>
+
+
+

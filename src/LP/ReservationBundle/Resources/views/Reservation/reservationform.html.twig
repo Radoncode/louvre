@@ -1,0 +1,25 @@
+
+
+<div class="well" >
+
+  {{ form_start(form)}}
+  {{ form_row(form.reservationdate.dated) }}
+  {{ form_row(form.reservationdate.number) }}
+  {{ form_label(form.type) }}
+  {{ form_errors(form.type) }}
+  {{ form_widget(form.type) }}
+  {{ form_row(form.firstname) }}
+  {{ form_row(form.name) }}
+  {{ form_label(form.country) }}
+  {{ form_errors(form.country) }}
+  {{ form_widget(form.country) }}
+  {{ form_label(form.birthday) }}
+  {{ form_errors(form.birthday) }}
+  {{ form_widget(form.birthday,{'attr':{'class':'datepicker-js'}}) }}
+  {{ form_row(form.email) }}
+  {{ form_row(form.valider) }}
+  {{ form_end(form) }}
+
+</div>
+
+

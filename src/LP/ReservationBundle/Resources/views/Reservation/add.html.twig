@@ -1,0 +1,12 @@
+{% extends "LPReservationBundle::layout.html.twig" %}
+
+{% block title %}
+	Réservation - {{ parent() }}
+{% endblock %}
+
+{% block lpreservation_body %}
+  <h2 class="well">COORDONNEES DE RESERVATION</h2>
+  {{ include("LPReservationBundle:Reservation:reservationform.html.twig") }}
+{% endblock %}
+
+

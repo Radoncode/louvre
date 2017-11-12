@@ -1,0 +1,57 @@
+{% extends "LPReservationBundle::layout.html.twig" %}
+
+{% block title %}
+	Paiement - {{ parent() }}
+{% endblock %}
+
+{% block lpreservation_body %}
+ 
+  <h2 class="well">RECAPITULATIF DE LA COMMANDE </h2>
+  <table class="table table-bordered">
+   <thead>
+      <tr>
+        <th>NUMERO DU TICKET</th>
+        <th>COORDONNEES</th>
+        <th>PRIX</th>
+      </tr>
+   </thead>
+  <tbody>
+  {% if listTickets is defined %}
+  {% for ticket in listTickets %}
+    <tr>
+       <th>{{ ticket.id }}</th>
+       <th>{{ ticket.firstname }} {{ ticket.name }} né(e) le {{ ticket.birthday|date('d/m/Y') }}</th>
+       <th>{{ ticket.price }}€</th>
+    </tr>
+  {% endfor %}
+  </tbody>
+  <tfooter>
+     <tr>
+        <th></th>
+        <th>TOTALE</th>
+        <th>{{ sumTickets }}€</th>
+     </tr>
+  </tfooter>
+  {% endif %}
+  </table>
+   <form action="{{ path('lp_reservation_checkout',{'id': id}) }}" method="POST">
+   <script
+      src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+      data-key="pk_test_XS7Y2CFfxDDFpMICPZd3RaKr"
+      data-amount="{{ sumTickets * 100 }}"
+      data-name="Stripe.com"
+      data-description="Widget"
+      data-locale="auto"
+      data-currency="eur"
+      data-billing-address="true">
+   </script>
+   </form>                 
+                    
+{% endblock %}
+  
+  
+ 
+
+
+
+

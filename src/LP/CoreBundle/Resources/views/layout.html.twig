@@ -1,0 +1,72 @@
+
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>{% block title %}LP réservation{% endblock %}</title>
+
+    {% block stylesheets %}
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.6.0/css/bootstrap-datepicker.css">
+     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+     {% stylesheets  filter='css_url_rewrite, ?scssphp' '@LPReservationBundle/Resources/public/css/main.css'  %}
+     <link rel="stylesheet" href="{{ asset_url }}" type="text/css" />
+     {% endstylesheets %}
+     {% endblock %}
+  </head>
+
+  <body>
+    <div class="container">
+      <div id="header" class="jumbotron">
+       
+       <h1>MUSEE DU LOUVRE</h1>
+       <p>
+          Ce projet est propulsé par El Bouni Radouan,
+          et construit grâce au MOOC Openclassrooms et SensioLabs.
+       </p>
+       <p>
+         <a class="btn btn-primary btn-lg" href="https://openclassrooms.com/">Openclassroom
+         </a>
+       </p>
+    </div>
+
+    <div class="row">
+      <div id="menu" class="col-md-3" >
+        <ul class="nav nav-pills nav-stacked">
+          <li><a href="{{ path('lp_core_homepage') }}">ACCUEIL</a></li>
+          <li><a href="{{ path('lp_reservation_add') }}">
+          BILLETERIE EN LIGNE</a></li>
+          <li><a href="{{ path('lp_core_contact') }}">
+          CONTACT</a></li>
+        </ul>
+      </div>
+      <div id="content" class="col-md-9">
+        {% block body %}
+        {% endblock %}
+      </div>
+    </div>
+
+    
+
+  {% block javascript %}
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.6.0/js/bootstrap-datepicker.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+    <script src="https://js.stripe.com/v3/"></script>
+    {% javascripts 'bundles/lpreservation/js/main.js' filter='?jsqueeze' %}
+    <script src="{{ asset_url }}"></script>
+    {% endjavascripts %}
+  {% endblock %}
+      
+    </body>
+    <hr>
+
+    <footer>
+        <p style="color:black;font-weight:bold;">Développé par EL BOUNI RADOUAN © {{ 'now'|date('Y') }}.</p>
+    </footer>
+  </div>
+ </html>
+      
+      

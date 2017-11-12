@@ -1,0 +1,41 @@
+a
+{
+	color:black;
+	font-weight:bold;
+	font-size: 16px;
+}
+
+th
+{
+	text-align:center;
+}
+
+h1,h2,td,th
+{
+	color:black;
+	font-weight:bold;
+}
+
+table
+{
+	border:1px solid #EEEEEE;
+	background-color: #EEEEEE;
+}
+
+#menu
+{
+	border:1px solid #EEEEEE;
+	background-color: #EEEEEE;
+}
+
+.well
+{
+	width:auto;
+	margin-left:10px;
+}
+
+
+body
+{
+   background-image:url('../images/louvre1.jpg');
+}

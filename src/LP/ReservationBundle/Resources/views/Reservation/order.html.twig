@@ -1,0 +1,48 @@
+{% extends "LPReservationBundle::layout.html.twig" %}
+
+{% block title %}
+	Billeterie - {{ parent() }}
+{% endblock %}
+
+
+{% block lpreservation_body %}
+   
+  <div class="row">
+  <h2 class="well">Commande des billets</h2>
+  {{ include("LPReservationBundle:Reservation:ticketform.html.twig") }}
+  </div>
+  
+  <div class="row"> 
+  <div class="col-sm-12">
+  <h2 class="well" >Réservation n°{{ order }} en cours</h2>
+  <table class="table table-bordered">
+   <thead>
+   	  <tr>
+   	    <th >Numéro du Ticket</th>
+   	    <th >Coordonnées</th>
+        <th>Prix du billet</th>
+   	  </tr> 
+   </thead>
+   <tbody>
+
+   {% if listTickets is defined %}
+     {% for ticket in listTickets %}
+       <tr>
+         <th >{{ ticket.id }}</th>
+         <th > {{ ticket.firstname }} {{ ticket.name }} né(e) le {{ ticket.birthday|date('d/m/Y') }}</th>
+         <th> {{ ticket.price }}€</th>
+       </tr>
+     {% endfor %}
+  {% endif %}
+</tbody>
+</table>  
+</div>
+</div>
+{{ form_row(form.saveAndAdd) }}
+{{ form_end(form) }}
+{% endblock %}
+             
+                              
+       
+
+

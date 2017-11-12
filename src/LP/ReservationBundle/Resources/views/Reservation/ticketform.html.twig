@@ -1,0 +1,18 @@
+
+
+<div class="well" >
+
+  {{ form_start(form,{'attr':{'id':'form'}}) }}
+  {{ form_errors(form) }}
+  {{ form_row(form.firstname) }}
+  {{ form_row(form.name) }}
+  {{ form_label(form.birthday) }}
+  {{ form_errors(form.birthday) }}
+  {{ form_widget(form.birthday,{'attr':{'class':'datepicker-js-js'}}) }}
+  {{ form_row(form.reduction) }}
+  {{ form_label(form.save) }}
+  {{ form_widget(form.save) }}
+
+</div>
+
+

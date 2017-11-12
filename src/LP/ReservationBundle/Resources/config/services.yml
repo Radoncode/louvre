@@ -1,0 +1,4 @@
+services:
+#    lp_reservation.example:
+#        class: LP\ReservationBundle\Example
+#        arguments: ["@service_id", "plain_value", "%parameter%"]

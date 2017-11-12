@@ -1,0 +1,7 @@
+lp_core_homepage:
+    path:     /
+    defaults: { _controller: LPCoreBundle:Home:index }
+
+lp_core_contact:
+    path:    /contact
+    defaults: { _controller: LPCoreBundle:Home:contact }

@@ -1,0 +1,16 @@
+{% extends "LPReservationBundle::layout.html.twig" %}
+
+{% block title %}
+	Réservation - {{ parent() }}
+{% endblock %}
+
+{% block lpreservation_body %}
+  <h2 class="well">VALIDATION DE LA COMMANDE</h2>
+  <p class="table table-bordered">Votre commande n° : {{ code }} a bien été prise en compte et nous vous en remerçions,<br/>
+  un mail de confirmation vous a été envoyé sur votre boite mail avec un récapitulatif de la réservation<br/>
+  Cordialement<br/>
+  Musée du Louvre.
+  </p>
+{% endblock %}
+
+

@@ -1,0 +1,34 @@
+
+
+lp_reservation_add:
+     path: /add
+     defaults: 
+          _controller: LPReservationBundle:Reservation:add 
+
+lp_reservation_order:
+     path: /order/{id}
+     defaults:
+           _controller: LPReservationBundle:Reservation:order
+
+lp_reservation_payment:
+     path:  /payment/{id}
+     defaults:
+           _controller: LPReservationBundle:Reservation:payment
+     requirements:
+           id:    \d{1,3}
+
+lp_reservation_checkout:
+     path:   /order_checkout/{id}
+     defaults:
+          _controller: LPReservationBundle:Reservation:order_checkout
+
+lp_reservation_error:
+    path: /order/{id}
+    defaults:
+          _controller:  LPReservationBundle:Reservation:error
+    requirements:
+          id:   \d{4,}
+    
+    
+
+

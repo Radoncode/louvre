@@ -1,0 +1,11 @@
+lp_core:
+   resource: "@LPCoreBundle/Resources/config/routing.yml"
+   prefix:  /
+
+lp_reservation:
+    resource: "@LPReservationBundle/Resources/config/routing.yml"
+    prefix:   /
+
+
+
+
