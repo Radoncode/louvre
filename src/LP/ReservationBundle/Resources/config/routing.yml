@@ -22,13 +22,7 @@ lp_reservation_checkout:
      defaults:
           _controller: LPReservationBundle:Reservation:order_checkout
 
-lp_reservation_error:
-    path: /order/{id}
-    defaults:
-          _controller:  LPReservationBundle:Reservation:error
-    requirements:
-          id:   \d{4,}
-    
+
     
 
 

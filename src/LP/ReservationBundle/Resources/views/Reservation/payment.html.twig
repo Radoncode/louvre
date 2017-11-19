@@ -5,7 +5,11 @@
 {% endblock %}
 
 {% block lpreservation_body %}
- 
+
+{% for message in app.session.flashbag.get('noticea') %}
+<div class="alert alert-info" role="alert">Message flash : {{ message }}</div>
+{% endfor %}
+
   <h2 class="well">RECAPITULATIF DE LA COMMANDE </h2>
   <table class="table table-bordered">
    <thead>
@@ -20,7 +24,7 @@
   {% for ticket in listTickets %}
     <tr>
        <th>{{ ticket.id }}</th>
-       <th>{{ ticket.firstname }} {{ ticket.name }} né(e) le {{ ticket.birthday|date('d/m/Y') }}</th>
+       <th>{{ ticket.firstname }} {{ ticket.name }} né(e) le {{ ticket.birthday|date('d/m/Y') }} | {{ ticket.country }} </th>
        <th>{{ ticket.price }}€</th>
     </tr>
   {% endfor %}

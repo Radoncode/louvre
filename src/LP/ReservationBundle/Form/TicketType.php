@@ -12,6 +12,8 @@ use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\MoneyType;
 use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Component\Form\Extension\Core\Type\ResetType;
+use Symfony\Component\Form\Extension\Core\Type\CountryType;
+
 
 
 class TicketType extends AbstractType
@@ -25,6 +27,7 @@ class TicketType extends AbstractType
             ->add('firstname',TextType::class,array('label'=>'Nom'))
             ->add('name',TextType::class,array('label'=>'Prénom'))
             ->add('birthday',DateType::class,array('label'=>'Date de Naissance','widget'=>'single_text','html5'=>false,'format'=>'dd/MM/yy','attr'=>array('class'=>'datepicker-js-js')))
+            ->add('country',CountryType::class,array('label'=>'Pays'))
             ->add('reduction',CheckboxType::class,array('label'=>'Réduction (Attention ! Une attestation accompagnant votre billet vous sera demandé à l\'entrée attestant que vous bénéficiez de la réduction) ','required'=>false))
             ->add('save',SubmitType::class,array('label'=>'Ajouter'))
             ->add('saveAndAdd',SubmitType::class,array('label'=>'Valider'));

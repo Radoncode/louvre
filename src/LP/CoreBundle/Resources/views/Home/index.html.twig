@@ -9,10 +9,4 @@ Vous pouvez également explorer le musée autour d'un thème particulier de l’
 Si vous souhaitez approfondir vos connaissances autour d’un sujet, des cycles de visites sont également proposés en 3 ou 5 séances.
 Des activités spécifiques sont également proposées aux visiteurs en situation de handicap en lien avec l'actualité des collections ou des expositions temporaires : visites decriptives et tactiles, visites en langue des signes français (LSF), visites en lecture labiale (LL).</p>
 </div>
-<div>
-	{% for message in app.session.flashbag.get('info') %}
-	<p>Message flash : {{ message }}</p>
-	{% endfor %}
-</div>
-
 {% endblock %}

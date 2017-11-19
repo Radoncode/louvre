@@ -13,14 +13,8 @@
              $("#billetjournee").show();    
         }});
       /* END */
-
-      // Bloquer le Pays à france
       $(function(){
             $("#lp_reservationbundle_reservation_country").val('FR');
-      });
-      
-      $(function(){
-            $("#lp_reservationbundle_ticket_country").val('FR');
       });
 
       //Jquery Alert pour les messages d'alertes

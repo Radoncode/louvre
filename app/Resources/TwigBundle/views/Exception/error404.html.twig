@@ -6,7 +6,7 @@
         <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
         <title>Une erreur est survenue : {{ status_text }}</title>
         {% block stylesheets %}
-            {% stylesheets  filter='css_url_rewrite, ?scssphp' '@LPReservationBundle/Resources/public/css/erreur404.css'  %}
+            {% stylesheets  filter='css_url_rewrite, ?scssphp' '@LPReservationBundle/Resources/public/css/erreur.css'  %}
             <link rel="stylesheet" href="{{ asset_url }}" type="text/css" />
             {% endstylesheets %}
         {% endblock %}
@@ -16,8 +16,8 @@
         <h2>Le serveur a retourné une "{{ status_code }} {{ status_text }}".</h2>
 
         <div>
-            Quelque chose est cassé. S'il vous plaît laissez-nous savoir ce que vous faisiez quand cette erreur s'est produite.
-            Nous allons le réparer dès que possible. Désolé pour tout inconvénient causé.
+            <p>Quelque chose est cassé. S'il vous plaît laissez-nous savoir ce que vous faisiez quand cette erreur s'est produite.<br/>
+            Nous allons le réparer dès que possible. Désolé pour la gêne occasionnée.</p>
         </div>
     </body>
 </html>

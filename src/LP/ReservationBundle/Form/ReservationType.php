@@ -22,9 +22,6 @@ class ReservationType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {   
-        /* ex: 10h < 14h donc vrais $day pas désactivé et $halfDay true pas désactivé après 14h faux $day désactivé mais pas $halfDay car true*/
-       // $day = new \Datetime('now') < new \Datetime('14:00:00'); 
-       // $halfDay = true;
       
         $builder
            ->add('reservationdate',ReservationDateType::class,array('label'=>' '))

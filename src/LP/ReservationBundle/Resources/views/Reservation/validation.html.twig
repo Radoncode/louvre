@@ -4,13 +4,21 @@
 	Réservation - {{ parent() }}
 {% endblock %}
 
+
+
 {% block lpreservation_body %}
+
+{% for message in app.session.flashbag.get('success') %}
+<div class="alert alert-success" role="alert">Message flash : {{ message }}</div>
+{% endfor %}
+
   <h2 class="well">VALIDATION DE LA COMMANDE</h2>
-  <p class="table table-bordered">Votre commande n° : {{ code }} a bien été prise en compte et nous vous en remerçions,<br/>
+  <p class="well">Votre commande n° : <strong>{{ code }}</strong> a bien été prise en compte et nous vous en remerçions,<br/>
   un mail de confirmation vous a été envoyé sur votre boite mail avec un récapitulatif de la réservation<br/>
   Cordialement<br/>
-  Musée du Louvre.
+  <strong>Musée du Louvre</strong>
   </p>
+
 {% endblock %}
 
 

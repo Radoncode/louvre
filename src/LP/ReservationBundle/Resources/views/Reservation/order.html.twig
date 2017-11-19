@@ -6,12 +6,22 @@
 
 
 {% block lpreservation_body %}
-   
+
+  
+  {% for message in app.session.flashbag.get('noticea') %}
+  <div class="alert alert-info" role="alert">Message flash : {{ message }}</div>
+  {% endfor %}
+  
+
   <div class="row">
   <h2 class="well">Commande des billets</h2>
   {{ include("LPReservationBundle:Reservation:ticketform.html.twig") }}
   </div>
   
+
+  {% for message in app.session.flashbag.get('noticeb') %}
+  <div class="alert alert-success" role="alert">Message flash : {{ message }}</div>
+  {% endfor %}
   <div class="row"> 
   <div class="col-sm-12">
   <h2 class="well" >Réservation n°{{ order }} en cours</h2>
@@ -29,7 +39,7 @@
      {% for ticket in listTickets %}
        <tr>
          <th >{{ ticket.id }}</th>
-         <th > {{ ticket.firstname }} {{ ticket.name }} né(e) le {{ ticket.birthday|date('d/m/Y') }}</th>
+         <th > {{ ticket.firstname }} {{ ticket.name }} né(e) le {{ ticket.birthday|date('d/m/Y') }} | {{ ticket.country }}</th>
          <th> {{ ticket.price }}€</th>
        </tr>
      {% endfor %}

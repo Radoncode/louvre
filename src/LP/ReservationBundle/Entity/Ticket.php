@@ -45,6 +45,13 @@ class Ticket
     private $birthday;
 
     /**
+     * @var string
+     * 
+     * @ORM\Column(name="country", type="string", length=255)
+     */
+    private $country;
+
+    /**
      * @var bool
      *
      * @ORM\Column(name="reduction", type="boolean")
@@ -227,4 +234,28 @@ class Ticket
         return $this->price;
     }
 
+
+    /**
+     * Set country
+     *
+     * @param string $country
+     *
+     * @return Ticket
+     */
+    public function setCountry($country)
+    {
+        $this->country = $country;
+
+        return $this;
+    }
+
+    /**
+     * Get country
+     *
+     * @return string
+     */
+    public function getCountry()
+    {
+        return $this->country;
+    }
 }
