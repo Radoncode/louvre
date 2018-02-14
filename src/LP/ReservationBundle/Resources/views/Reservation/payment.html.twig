@@ -43,8 +43,9 @@
       src="https://checkout.stripe.com/checkout.js" class="stripe-button"
       data-key="pk_test_XS7Y2CFfxDDFpMICPZd3RaKr"
       data-amount="{{ sumTickets * 100 }}"
-      data-name="Stripe.com"
-      data-description="Widget"
+      data-image="{{ asset('bundles/lpreservation/images/logo.jpg') }}"
+      data-name="Musée du Louvre"
+      data-description="Billet d'entré au Musée du Louve"
       data-locale="auto"
       data-currency="eur"
       data-billing-address="true">
