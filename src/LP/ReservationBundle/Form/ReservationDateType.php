@@ -16,8 +16,8 @@ class ReservationDateType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-          ->add('dated',Datetype::class,array('label'=>'Jour de la Visite','widget'=>'single_text','html5'=>false,'format'=>'dd/MM/yy','attr'=>array('class'=>'js-datepicker')))
-          ->add('number',NumberType::class,array('label'=>'Nombre de billets'));
+          ->add('dated',Datetype::class,array('label'=>'Jour de la Visite','widget'=>'single_text','html5'=>false,'format'=>'dd/MM/yy','attr'=>array('class'=>'js-datepicker')));
+//          ->add('number',NumberType::class,array('label'=>'Nombre de billets'));
     }
     
     /**
