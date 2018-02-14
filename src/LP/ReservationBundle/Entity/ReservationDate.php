@@ -33,7 +33,7 @@ class ReservationDate
     /**
      * @var int
      *
-     * @ORM\Column(name="number", type="integer")
+     * @ORM\Column(name="number", type="integer", nullable=true)
      */
     private $number;
 
