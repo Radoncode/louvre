@@ -38,7 +38,7 @@
   </tfooter>
   {% endif %}
   </table>
-   <form action="{{ path('lp_reservation_checkout',{'id': id}) }}" method="POST">
+   <form action="{{ path('lp_reservation_checkout',{'id': id}) }}" method="POST" id="payment-form">
    <script
       src="https://checkout.stripe.com/checkout.js" class="stripe-button"
       data-key="pk_test_XS7Y2CFfxDDFpMICPZd3RaKr"
@@ -53,7 +53,29 @@
    </form>                 
                     
 {% endblock %}
-  
+{% block javascripts %}
+<script>
+    var stripe = Stripe('pk_test_XS7Y2CFfxDDFpMICPZd3RaKr');
+
+    var promise = stripe.createToken(card);
+        var form = $('#payment-form');
+        form.submit(function(e){
+            e.preventDefault();
+               promise.then(function(result){
+                if(result.error){
+                    $('<div class="alert alert-danger" id="error-message">'+result.error.message+'</div>').insertBefore(form);
+                    setTimeout(function(){$('#error-message').remove();}, 1750);
+                }else{
+                    var tokenId = result.token.id;
+                    $('<input type="hidden" name="stripeToken">').val(tokenId).appendTo(form);
+                    form.get(0).submit();
+                }
+            });
+        });
+
+</script>
+
+{% endblock %}
   
  
 
