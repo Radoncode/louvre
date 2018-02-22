@@ -15,8 +15,19 @@ services:
         public: false
 
 
-    stripe_checkout:
+    stripe:
 
-        class: LP\ReservationBundle\Service\StripeCheckout
+        class: LP\ReservationBundle\Service\Stripe
+        arguments:
+             $api_key: '%stripe%'
+        public: true
 
+    random_number:
+
+        class: LP\ReservationBundle\Service\RandomNumber
+        public: true
+
+    ticket_price:
+
+        class: LP\ReservationBundle\Service\TicketPrice
         public: true
