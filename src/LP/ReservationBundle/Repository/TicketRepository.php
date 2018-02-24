@@ -22,6 +22,20 @@ class TicketRepository extends EntityRepository
 		  ->getResult();
 	}
 
+	public function findAllTicketForReservationDate($reservationDate){
+
+	    return $this
+            ->createQueryBuilder('t')
+            ->select('COUNT(t)')
+            ->innerJoin('t.reservation','r')
+            ->andWhere('r.reservationdate = :reservationdate')
+            ->setParameter('reservationdate',$reservationDate)
+            ->getQuery()
+            ->getSingleScalarResult();
+
+    }
+
+
 	public function getSumTicketsWithReservation($id)
 	{
 		return $this
