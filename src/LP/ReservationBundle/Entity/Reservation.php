@@ -75,8 +75,9 @@ class Reservation
 
 
     /**
-     * @ORM\ManyToOne(targetEntity="LP\ReservationBundle\Entity\ReservationDate", cascade={"persist","remove"}, inversedBy="reservations")
-     * @ORM\JoinColumn(nullable=false)
+     * @var \DateTime
+     *
+     * @ORM\Column(name="reservationdate", type="date")
      */
     private $reservationdate;
 
@@ -275,14 +276,23 @@ class Reservation
         return $this->country;
     }
 
+
     /**
-     * Set reservationdate
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->tickets = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    /**
+     * Set reservationdate.
      *
-     * @param \LP\ReservationBundle\Entity\ReservationDate $reservationdate
+     * @param \DateTime $reservationdate
      *
      * @return Reservation
      */
-    public function setReservationdate(ReservationDate $reservationdate)
+    public function setReservationdate($reservationdate)
     {
         $this->reservationdate = $reservationdate;
 
@@ -290,9 +300,9 @@ class Reservation
     }
 
     /**
-     * Get reservationdate
+     * Get reservationdate.
      *
-     * @return \LP\ReservationBundle\Entity\ReservationDate
+     * @return \DateTime
      */
     public function getReservationdate()
     {
