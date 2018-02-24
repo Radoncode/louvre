@@ -68,7 +68,7 @@ class Ticket
     /**
      * @var int
      * 
-     * @ORM\Column(name="price", type="integer")
+     * @ORM\Column(name="price", type="integer" )
      */
     private $price;
 
@@ -232,6 +232,7 @@ class Ticket
     public function getPrice()
     {
         return $this->price;
+
     }
 
 
