@@ -23,9 +23,13 @@
   <div class="alert alert-success" role="alert">Message flash : {{ message }}</div>
   {% endfor %}
 
+    {% for message in app.session.flashbag.get('noticec') %}
+<div class="alert alert-info" role="alert">Message flash : {{ message }}</div>
+{% endfor %}
+
   <div class="row"> 
   <div class="col-sm-12">
-  <h2 class="well" >Réservation n°{{ order }} en cours</h2>
+  <h2 class="well" >Réservation n°{{ order }} en cours </h2>
   <table class="table table-bordered">
    <thead>
    	  <tr>
@@ -36,12 +40,13 @@
    </thead>
    <tbody>
 
-   {% if listTickets is defined %}
+   {% if listTickets is defined  %}
      {% for ticket in listTickets %}
        <tr>
-         <th >{{ ticket.id }}</th>
-         <th > {{ ticket.firstname }} {{ ticket.name }} né(e) le {{ ticket.birthday|date('d/m/Y') }} | {{ ticket.country }}</th>
-         <th> {{ ticket.price }}€</th>
+         <td>{{ ticket.id }}</td>
+         <td> {{ ticket.firstname }} {{ ticket.name }} né(e) le {{ ticket.birthday|date('d/m/Y') }} | {{ ticket.country }}</td>
+         <td> {{ ticket.price }}€</td>
+           <td><a href="{{ path('lp_reservation_delete',{'id': ticket.id})}}" class="btn btn-danger">Supprimer</a></td>
        </tr>
      {% endfor %}
   {% endif %}
@@ -49,7 +54,7 @@
 </table>  
 </div>
 </div>
-{{ form_row(form.saveAndAdd) }}
+    <input type="submit" name="saveAndAdd" formnovalidate="formnovalidate" class="btn btn-primary"/>
 {{ form_end(form) }}
 {% endblock %}
              
