@@ -16,7 +16,7 @@ use Symfony\Component\Form\Extension\Core\Type\CountryType;
 
 
 
-class TicketType extends AbstractType
+class TicketType1 extends AbstractType
 {
     /**
      * {@inheritdoc}
