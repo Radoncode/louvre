@@ -1,16 +1,6 @@
+{% extends "LPCoreBundle::layout.html.twig" %}
 
-
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
-        <title>Une erreur est survenue : {{ status_text }}</title>
-        {% block stylesheets %}
-            {% stylesheets  filter='css_url_rewrite, ?scssphp' '@LPReservationBundle/Resources/public/css/erreur.css'  %}
-            <link rel="stylesheet" href="{{ asset_url }}" type="text/css" />
-            {% endstylesheets %}
-        {% endblock %}
-    </head>
+{% block body %}
     <body>
         <h1>Oops! Une erreur est survenue</h1>
         <h2>Le serveur a retourné une "{{ status_code }} {{ status_text }}".</h2>
@@ -19,5 +9,6 @@
             <p>Quelque chose est cassé. S'il vous plaît laissez-nous savoir ce que vous faisiez quand cette erreur s'est produite.<br/>
             Nous allons le réparer dès que possible. Désolé pour la gêne occasionnée.</p>
         </div>
+        <p><a href="{{ path('lp_core_homepage') }}" class=" center-block btn btn-default"><i class="glyphicon glyphicon-chevron-left"></i>PAGE D'ACCUEIL</a></p>
     </body>
-</html>
+{% endblock %}
