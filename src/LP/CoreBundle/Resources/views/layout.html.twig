@@ -1,5 +1,4 @@
 
-
 <!DOCTYPE html>
 <html>
   <head>
@@ -46,25 +45,21 @@
       </div>
     </div>
 
-    
-
-  {% block javascript %}
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.6.0/js/bootstrap-datepicker.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
     <script src="https://js.stripe.com/v3/"></script>
+
+        {% block javascripts %}{% endblock %}
     {% javascripts 'bundles/lpreservation/js/main.js' filter='?jsqueeze' %}
     <script src="{{ asset_url }}"></script>
     {% endjavascripts %}
-  {% endblock %}
-      
+    </div>
     </body>
     <hr>
-
     <footer>
         <p style="color:black;font-weight:bold;">Développé par EL BOUNI RADOUAN © {{ 'now'|date('Y') }}.</p>
     </footer>
-  </div>
  </html>
       
       
