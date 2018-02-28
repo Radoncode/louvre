@@ -10,6 +10,10 @@
 <div class="alert alert-info" role="alert">Message flash : {{ message }}</div>
 {% endfor %}
 
+    {% for message in app.session.flashbag.get('noticeb') %}
+<div class="alert alert-info" role="alert">Message flash : {{ message }}</div>
+{% endfor %}
+
   <h2 class="well">COORDONNEES DE RESERVATION</h2>
   {{ include("LPReservationBundle:Reservation:reservationform.html.twig") }}
 {% endblock %}
