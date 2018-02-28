@@ -1,3 +1,4 @@
+
 lp_core:
    resource: "@LPCoreBundle/Resources/config/routing.yml"
    prefix:  /
