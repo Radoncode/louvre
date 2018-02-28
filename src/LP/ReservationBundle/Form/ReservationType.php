@@ -26,8 +26,8 @@ class ReservationType extends AbstractType
                                                                                'choice_attr'=> function($val){
                                                                                                                 return['id'=>$val];
                                                                                                                 }))
-             ->add('name',TextType::class,array('label'=>'Prénom'))
-             ->add('firstname',TextType::class,array('label'=>'Nom'))
+             ->add('name',TextType::class,array('label'=>'Nom'))
+             ->add('firstname',TextType::class,array('label'=>'Prénom'))
 
              ->add('birthday',DateType::class,array('label'=>'Date de naissance',
                                                                 'widget'=>'single_text',
@@ -42,8 +42,8 @@ class ReservationType extends AbstractType
                                                                        'widget'=>'single_text',
                                                                        'html5'=>false,
                                                                        'format'=>'dd/MM/yy',
-                                                                       'attr'=>array('class'=>'js-datepicker')))
-             ->add('valider',SubmitType::class);
+                                                                       'attr'=>array('class'=>'js-datepicker')));
+
     }/**
      * {@inheritdoc}
      */
