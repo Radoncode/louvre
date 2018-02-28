@@ -3,7 +3,7 @@
 namespace LP\ReservationBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-use LP\ReservationBundle\Entity\Reservation;
+use Symfony\Component\Validator\Constraints as Assert;
 
 
 /**
@@ -27,6 +27,12 @@ class Ticket
      * @var string
      *
      * @ORM\Column(name="firstname", type="string", length=255)
+     *
+     * @Assert\Type(type="string",message="Le prénom n'est pas une chaîne de caractère valide")
+     *
+     * @Assert\NotBlank(message ="Ce champ ne doit pas être vide")
+     *
+     * @Assert\Length(min = 2 , max = 50 , minMessage="Le prénom doit contenir au mois 2 caractères", maxMessage="Le prénom doit contenir au moins 50 caractères")
      */
     private $firstname;
 
@@ -34,6 +40,12 @@ class Ticket
      * @var string
      *
      * @ORM\Column(name="name", type="string", length=255)
+     *
+     * @Assert\Type(type="string",message="Le prénom n'est pas une chaîne de caractère valide")
+     *
+     * @Assert\NotBlank(message ="Ce champ ne doit pas être vide")
+     *
+     * @Assert\Length(min = 2 , max = 50 , minMessage="Le prénom doit contenir au mois 2 caractères", maxMessage="Le prénom doit contenir au moins 50 caractères")
      */
     private $name;
 
@@ -41,6 +53,10 @@ class Ticket
      * @var \DateTime
      *
      * @ORM\Column(name="birthday", type="date")
+     *
+     * @Assert\Date()
+     *
+     * @Assert\NotBlank(message ="Ce champ ne doit pas être vide")
      */
     private $birthday;
 
@@ -48,6 +64,8 @@ class Ticket
      * @var string
      * 
      * @ORM\Column(name="country", type="string", length=255)
+     *
+     * @Assert\NotBlank(message ="Ce champ ne doit pas être vide")
      */
     private $country;
 
