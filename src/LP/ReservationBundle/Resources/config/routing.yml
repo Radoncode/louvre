@@ -22,6 +22,14 @@ lp_reservation_checkout:
      defaults:
           _controller: LPReservationBundle:Reservation:order_checkout
 
+lp_reservation_delete:
+     path:  /delete/{id}
+
+     defaults:
+          _controller: LPReservationBundle:Reservation:delete
+
+
+
 
     
 
