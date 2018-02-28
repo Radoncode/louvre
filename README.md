@@ -1,4 +1,4 @@
-Symfony Standard Edition
+<h1>Symfony Standard Edition</h1>
 
 Welcome to the Symfony Standard Edition - a fully-functional Symfony application that you can use as the skeleton for your new applications.
 
