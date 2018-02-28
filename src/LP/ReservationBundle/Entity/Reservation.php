@@ -3,8 +3,10 @@
 namespace LP\ReservationBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-use LP\ReservationBundle\Entity\Ticket;
-use LP\ReservationBundle\Entity\ReservationDate;
+use \Doctrine\Common\Collections\ArrayCollection;
+use Symfony\Component\Validator\Constraints as Assert;
+
+
 
 /**
  * Reservation
@@ -28,6 +30,9 @@ class Reservation
      * @var array
      *
      * @ORM\Column(name="type", type="array")
+     *
+     * @Assert\NotBlank(message ="Ce champ ne doit pas être vide")
+     *
      */
     private $type;
 
@@ -35,6 +40,12 @@ class Reservation
      * @var string
      *
      * @ORM\Column(name="name", type="string", length=255)
+     *
+     * @Assert\Type(type="string",message="Le nom n'est pas une chaîne de caractère valide")
+     *
+     * @Assert\NotBlank(message ="Ce champ ne doit pas être vide")
+     *
+     * @Assert\Length(min = 2 , max = 50 , minMessage="Le nom doit contenir au mois 2 caractères", maxMessage="Le nom doit contenir au moins 50 caractères")
      */
     private $name;
 
@@ -42,6 +53,13 @@ class Reservation
      * @var string
      *
      * @ORM\Column(name="firstname", type="string", length=255)
+     *
+     * @Assert\Type(type="string",message="Le prénom n'est pas une chaîne de caractère valide")
+     *
+     * @Assert\NotBlank(message ="Ce champ ne doit pas être vide")
+     *
+     * @Assert\Length(min = 2 , max = 50 , minMessage="Le prénom doit contenir au mois 2 caractères", maxMessage="Le prénom doit contenir au moins 50 caractères")
+     *
      */
     private $firstname;
 
@@ -49,6 +67,10 @@ class Reservation
      * @var \DateTime
      *
      * @ORM\Column(name="birthday", type="date")
+     *
+     * @Assert\Date()
+     *
+     * @Assert\NotBlank(message ="Ce champ ne doit pas être vide")
      */
     private $birthday;
 
@@ -56,6 +78,10 @@ class Reservation
      * @var string
      *
      * @ORM\Column(name="email", type="string", length=255)
+     *
+     * @Assert\Email( message = "L' email '{{ value }}' n'est pas un email valide.",checkMX = true)
+     *
+     * @Assert\NotBlank(message ="Ce champ ne doit pas être vide")
      */
     private $email;
 
@@ -65,6 +91,8 @@ class Reservation
      * @var string
      * 
      * @ORM\Column(name="country", type="string", length=255)
+     *
+     * @Assert\NotBlank(message ="Ce champ ne doit pas être vide")
      */
     private $country;
 
@@ -78,8 +106,30 @@ class Reservation
      * @var \DateTime
      *
      * @ORM\Column(name="reservationdate", type="date")
+     *
+     * @Assert\Date()
+     *
+     * @Assert\NotBlank(message ="Ce champ ne doit pas être vide")
      */
     private $reservationdate;
+
+    /**
+     * @var  boolean
+     *
+     * @ORM\Column(name="closed", type="boolean",nullable=true)
+     *
+     */
+     private $closed;
+
+
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->tickets = new ArrayCollection();
+        $this->closed = false;
+    }
 
 
     /**
@@ -278,14 +328,6 @@ class Reservation
 
 
     /**
-     * Constructor
-     */
-    public function __construct()
-    {
-        $this->tickets = new \Doctrine\Common\Collections\ArrayCollection();
-    }
-
-    /**
      * Set reservationdate.
      *
      * @param \DateTime $reservationdate
@@ -307,5 +349,29 @@ class Reservation
     public function getReservationdate()
     {
         return $this->reservationdate;
+    }
+
+    /**
+     * Set closed.
+     *
+     * @param bool|null $closed
+     *
+     * @return Reservation
+     */
+    public function setClosed($closed = null)
+    {
+        $this->closed = $closed;
+
+        return $this;
+    }
+
+    /**
+     * Get closed.
+     *
+     * @return bool|null
+     */
+    public function getClosed()
+    {
+        return $this->closed;
     }
 }
