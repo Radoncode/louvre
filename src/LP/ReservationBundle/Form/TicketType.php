@@ -16,7 +16,7 @@ use Symfony\Component\Form\Extension\Core\Type\CountryType;
 
 
 
-class TicketType1 extends AbstractType
+class TicketType extends AbstractType
 {
     /**
      * {@inheritdoc}
@@ -28,9 +28,9 @@ class TicketType1 extends AbstractType
             ->add('name',TextType::class,array('label'=>'Prénom'))
             ->add('birthday',DateType::class,array('label'=>'Date de Naissance','widget'=>'single_text','html5'=>false,'format'=>'dd/MM/yy','attr'=>array('class'=>'datepicker-js-js')))
             ->add('country',CountryType::class,array('label'=>'Pays'))
-            ->add('reduction',CheckboxType::class,array('label'=>'Réduction (Attention ! Une attestation accompagnant votre billet vous sera demandé à l\'entrée attestant que vous bénéficiez de la réduction) ','required'=>false))
-            ->add('save',SubmitType::class,array('label'=>'Ajouter'))
-            ->add('saveAndAdd',SubmitType::class,array('label'=>'Valider'));
+            ->add('reduction',CheckboxType::class,array('label'=>'Réduction (Attention ! Une attestation accompagnant votre billet vous sera demandé à l\'entrée attestant que vous bénéficiez de la réduction) ','required'=>false));
+
+
     }
     
     /**
