@@ -27,6 +27,10 @@
 <div class="alert alert-info" role="alert">Message flash : {{ message }}</div>
 {% endfor %}
 
+    {% for message in app.session.flashbag.get('noticed') %}
+<div class="alert alert-danger" role="alert">Message flash : {{ message }}</div>
+{% endfor %}
+
   <div class="row"> 
   <div class="col-sm-12">
   <h2 class="well" >Réservation n°{{ order }} en cours </h2>
@@ -38,8 +42,8 @@
         <th>Prix du billet</th>
    	  </tr> 
    </thead>
-   <tbody>
 
+      <tbody>
    {% if listTickets is defined  %}
      {% for ticket in listTickets %}
        <tr>
@@ -50,8 +54,8 @@
        </tr>
      {% endfor %}
   {% endif %}
-</tbody>
-</table>  
+      </tbody>
+</table>
 </div>
 </div>
     <input type="submit" name="saveAndAdd" formnovalidate="formnovalidate" class="btn btn-primary"/>
